@@ -10,7 +10,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"comment": "Hello World"}
 
 
 if __name__ == "__main__":
