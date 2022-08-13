@@ -8,4 +8,6 @@ RUN apk add --no-cache build-base \
     && pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt \
     && apk del build-base
 
+EXPOSE $PORT
+
 CMD ["uvicorn", "main:app", "--reload"]
