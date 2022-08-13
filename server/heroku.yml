@@ -1,5 +1,3 @@
 build:
   docker:
     web: Stage_Dockerfile
-run:
-  web: uvicorn main:app --reload
