@@ -1,5 +1,6 @@
 from typing import Union
 import os
+import logging
 
 import uvicorn
 from fastapi import FastAPI
@@ -13,4 +14,7 @@ def read_root():
 
 
 if __name__ == "__main__":
+    logger = logging.getLogger("uvicorn")
+    logger.setLevel(logging.DEBUG)
+    logger.info("start application......")
     uvicorn.run("main:app", port=os.getenv("PORT"))
