@@ -1,13 +1,11 @@
-FROM python:3.9.13-alpine
+FROM python:3.9.13
 
 WORKDIR /app
 
 COPY ./requirements.txt /app/requirements.txt
 
-RUN apk add --no-cache build-base \
-    && pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt \
-    && apk del build-base
+RUN pip install -r requirements.txt
 
-EXPOSE 8080
+EXPOSE $PORT
 
-CMD ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0"]
+CMD ["uvicorn", "main:app", "--reload"]
