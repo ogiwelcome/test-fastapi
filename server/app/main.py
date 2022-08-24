@@ -5,15 +5,10 @@ import logging
 import uvicorn
 from fastapi import FastAPI
 
+from logger import setup_logger
+from routers.routers import register_routers
+
 app = FastAPI()
+logger = setup_logger()
 
-
-@app.get("/")
-def read_root():
-    return {"comment": "Hello World"}
-
-
-if __name__ == "__main__":
-    logger = logging.getLogger("uvicorn")
-    logger.setLevel(logging.DEBUG)
-    logger.info("start application......")
+register_routers(app, logger)
